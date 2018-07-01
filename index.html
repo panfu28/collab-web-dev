@@ -412,6 +412,7 @@
             // Defocus anything that was focused so movement controls works
             // definitely not a hack
             setInterval(blurAll, 500);
+            setInterval(saturateBackground, 1000);
         }
 
         function blurAll() {
@@ -419,6 +420,14 @@
             document.body.appendChild(inpt);
             inpt.focus();
             document.body.removeChild(inpt);
+        }
+
+        var background = document.getElementById("background");
+        function saturateBackground() {
+            var distance = Math.sqrt((controls.target.x * controls.target.x) + (controls.target.z * controls.target.z));
+            distance = Math.round(distance/10000 * 10)/10 + 1;
+            console.log(distance);
+            background.style.filter = "saturate(" + distance +") blur(5px)";
         }
 
         function onKeydown(e) {
