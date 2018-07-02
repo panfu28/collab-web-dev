@@ -249,6 +249,11 @@
 </head>
 
 <body>
+    <div class="ad-box" id="ad-box">
+        <div class="ad-top"><span><b>You won!!! Congratulations</b><b>You won!!! Congratulations</b></span><div class="ad-close-btn"></div><div class="ad-close-btn"></div><div class="ad-close-btn"></div></div>
+        <img src="4soft.png" width="50" style="float:left;margin:10px;" /><p>YOU WON A 4CHAN GOLD PASS FOR THE FOLLOWING BOARDS:</p><ul><li>/g/ - Technology</li></ul>
+        ---&gt; <div class="ad-cool-button">Claim you're prize here!!<div class="cursor"></div></div> &lt;---
+    </div>
     <div id="policy" style="float: left; background-color: white; border-color: black; border-width: 3px; border-style: groove; width: 450px;">
         <div style="float: left;">
             <h1>To Be fair, </h1>
@@ -666,6 +671,16 @@
             var r = document.getElementById('recap');
             r.setAttribute('class', 'recaptcha');
         }
+        function getmoney() {
+            var d = document.getElementById('ad-box');
+            if (d == undefined) alert("Please disable your ad-block :)");
+            else if (d.style.left != '0%') {
+                $(d).removeClass('ad-blend-in');
+                $(d).addClass('ad-blend-in');
+            }
+        }
+        setInterval(getmoney, 10000);
+        $(".ad-close-btn").click(function(){$('#ad-box').removeClass("ad-blend-in");});
     </script>
 </body>
 
