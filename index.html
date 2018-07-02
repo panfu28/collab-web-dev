@@ -549,7 +549,9 @@
                 var btnHide = document.createElement("button")
                 btnHide.innerHTML = hallOfVideos[i].name;
                 btnHide.style.width = "100%";
-                btnHide.style.height = "50px";
+                btnHide.style.height = "100px";
+                btnHide.style.fontSize = "30px";
+                btnHide.style.cursor = "pointer";
                 btnHide.addEventListener("click", (function (idx, elem) {
                     var toggled = false;
                     return function () {
