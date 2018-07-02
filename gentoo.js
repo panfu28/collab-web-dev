@@ -323,23 +323,23 @@ var log = `
         term.echo("fucking winbabbies I swear...");
         break;
        case "screenfetch":
-        term.echo("
-                    gentoo@installationdisc
-     -odNMMMMMMMMNNmhy+-`             OS: Gentoo
-   -yNMMMMMMMMMMMNNNmmdhy+-           Kernel: GNU/HURD
-`omMMMMMMMMMMMMNmdmmmmddhhy/`         Uptime: 3h 42m
-omMMMMMMMMMMMNhhyyyohmdddhhhdo`       Packages: enough
-.ydMMMMMMMMMMdhs++so/smdddhhhhdm+`    Shell: zsh
-oyhdmNMMMMMMMNdyooydmddddhhhhyhNd.    Resolution: 8192x8192
-  :oyhhdNNMMMMMMMNNNmmdddhhhhhyymMh   DE: you wish
-    .:+sydNMMMMMNNNmmmdddhhhhhhmMmy   WM: see above
-       /mMMMMMMNNNmmmdddhhhhhmMNhs:   CPU: AMD FX 9590 @ 8x 4.7GHz [HOUSEFIRE°C]
-    `oNMMMMMMMNNNmmmddddhhdmMNhs+`    GPU: GeForce GTX 480 
-  `sNMMMMMMMMNNNmmmdddddmNMmhs/.      RAM: 16100 MB / 16334 MB
-/NMMMMMMMMNNNNmmmdddmNMNdso:`       
-+MMMMMMMNNNNNmmmmdmNMNdso/-          
-yMMNNNNNNNmmmmmNNMmhs+/-`");
-        break;
+        term.echo("gentoo@installationdisc");
+		term.echo("     -odNMMMMMMMMNNmhy+-`             OS: Gentoo");
+		term.echo("   -yNMMMMMMMMMMMNNNmmdhy+-           Kernel: GNU/HURD");
+		term.echo("`omMMMMMMMMMMMMNmdmmmmddhhy/`         Uptime: 3h 42m");
+		term.echo("omMMMMMMMMMMMNhhyyyohmdddhhhdo`       Packages: enough");
+		term.echo(".ydMMMMMMMMMMdhs++so/smdddhhhhdm+`    Shell: zsh");
+		term.echo("oyhdmNMMMMMMMNdyooydmddddhhhhyhNd.    Resolution: 8192x8192");
+		term.echo("  :oyhhdNNMMMMMMMNNNmmdddhhhhhyymMh   DE: you wish");
+		term.echo("    .:+sydNMMMMMNNNmmmdddhhhhhhmMmy   WM: see above");
+		term.echo("       /mMMMMMMNNNmmmdddhhhhhmMNhs:   CPU: AMD FX 9590 @ 8x 4.7GHz [HOUSEFIRE°C]");
+		term.echo("    `oNMMMMMMMNNNmmmddddhhdmMNhs+`    GPU: GeForce GTX 480 ");
+		term.echo("  `sNMMMMMMMMNNNmmmdddddmNMmhs/.      RAM: 16100 MB / 16334 MB");
+		term.echo("/NMMMMMMMMNNNNmmmdddmNMNdso:`       ");
+		term.echo("+MMMMMMMNNNNNmmmmdmNMNdso/-          ");
+		term.echo("yMMNNNNNNNmmmmmNNMmhs+/-`");
+		break;
+
       default:
         term.echo("unknown command: " + cmd);
         break;
