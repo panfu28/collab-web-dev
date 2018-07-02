@@ -21,7 +21,7 @@
     <script src="js/three.min.js"></script>
     <script src="js/CSS3DRenderer.js"></script>
     <script src="js/orbitcontrols.js"></script>
-    <script src="js/visualizer.js"></script>
+    <!-- <script src="js/visualizer.js"></script> -->
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
@@ -353,6 +353,27 @@
     </div>
 
     <script>
+        var musicplayer;
+        window.addEventListener("load", function() {
+            musicplayer = new Audio("africa.mp3");
+            musicplayer.play()
+                .then(function() {
+                    document.getElementById("africa-player").src = "toto-africa.jpg";
+                }).catch(function() {
+                    console.log("Could not play audio, blame chrome");
+                })
+            var afplayer = document.getElementById("africa-player");
+            afplayer.addEventListener("click", function() {
+                if (!musicplayer.paused) {
+                    musicplayer.pause();
+                    afplayer.src = "toto-africa-play.png";
+                } else {
+                    musicplayer.play();
+                    afplayer.src = "toto-africa.jpg";
+                }
+            });
+        });
+
         // Add some youtube videos or whatever
         function ytEmbed(name, url) { return { name: name, html: `<iframe width="854" height="480" src="` + url + `"frameborder="0" allow="autoplay; encrypted-media"></iframe>` } }
         var hallOfVideos = [
@@ -376,10 +397,10 @@
             { // Thinkpad
                 html: `<img src="thinkpad_keyboard.png">`,
                 rotation: { x: -Math.PI/2, y: 0, z: 0 },
-                position: { x: 0, y: -1000, z: 700 },
+                position: { x: 0, y: -1000, z: 1000 },
             },
-            { // Visualizer
-                html: `<div class="vz-wrapper -canvas"><audio id="africa" src="./africa.mp3" data-author="Toto" data-title="Africa"></audio><canvas id="visualizer" width="800" height="400"></canvas></div>`,
+            { // africa-player
+                html: `<img id="africa-player" src="toto-africa-play.png" style="cursor: pointer">`,
                 rotation: { x: Math.PI * -0.25, y: 0, z: 0 },
                 position: { x: 0, y: -500, z: 200 }
             },
