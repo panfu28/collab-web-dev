@@ -21,7 +21,8 @@
     <script src="js/three.min.js"></script>
     <script src="js/CSS3DRenderer.js"></script>
     <script src="js/orbitcontrols.js"></script>
-
+    <script src="js/visualizer.js"></script>
+    
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bee.css">
@@ -219,6 +220,29 @@
             -webkit-animation-iteration-count: infinite;
             -webkit-animation-duration: 1s;
         }
+        
+        .vz-wrapper {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            background: -webkit-gradient(radial, center center, 0, center center, 460, from(#396362), to(#000000));
+            background: -webkit-radial-gradient(circle, #396362, #000000);
+            background: -moz-radial-gradient(circle, #396362, #000000);
+            background: -ms-radial-gradient(circle, #396362, #000000);
+            box-shadow: inset 0 0 160px 0 #000;
+            cursor: pointer;
+        }
+
+        .vz-wrapper.-canvas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: initial;
+            width: initial;
+            background: transparent;
+            box-shadow: none;
+        }
     </style>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
@@ -356,6 +380,11 @@
                     y: 600,
                     z: 0,
                 },
+            },
+            { // Viszalizer
+                html: `<div class="vz-wrapper -canvas"><audio id="africa" src="./africa.mp3" data-author="Toto" data-title="Africa"></audio><canvas id="visualizer" width="800" height="400"></canvas></div>`,
+                rotation: { x: Math.PI * -0.5, y: 0, z: 0 },
+                position: { x: 0, y: -500, z: 200 }
             }
         ]
 
@@ -383,7 +412,7 @@
         var sprintMultiplier = 3;
 
         window.addEventListener("load", function () {
-            musicplayer = new Audio("africa.mp3")
+            musicplayer = document.getElementById("africa");
             musicplayer.play()
                 .catch(function (e) {
                     console.log("Could not play audio. Blame jewgle")
