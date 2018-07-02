@@ -316,6 +316,30 @@ var log = `
       case "echo":
         term.echo(args.join(" "));
         break;
+       case "ls":
+        term.echo("you don't need to see the directory listing");
+        break;
+       case "dir":
+        term.echo("fucking winbabbies I swear...");
+        break;
+       case "screenfetch":
+        term.echo("
+                    gentoo@installationdisc
+     -odNMMMMMMMMNNmhy+-`             OS: Gentoo
+   -yNMMMMMMMMMMMNNNmmdhy+-           Kernel: GNU/HURD
+`omMMMMMMMMMMMMNmdmmmmddhhy/`         Uptime: 3h 42m
+omMMMMMMMMMMMNhhyyyohmdddhhhdo`       Packages: enough
+.ydMMMMMMMMMMdhs++so/smdddhhhhdm+`    Shell: zsh
+oyhdmNMMMMMMMNdyooydmddddhhhhyhNd.    Resolution: 8192x8192
+  :oyhhdNNMMMMMMMNNNmmdddhhhhhyymMh   DE: you wish
+    .:+sydNMMMMMNNNmmmdddhhhhhhmMmy   WM: see above
+       /mMMMMMMNNNmmmdddhhhhhmMNhs:   CPU: AMD FX 9590 @ 8x 4.7GHz [HOUSEFIRE°C]
+    `oNMMMMMMMNNNmmmddddhhdmMNhs+`    GPU: GeForce GTX 480 
+  `sNMMMMMMMMNNNmmmdddddmNMmhs/.      RAM: 16100 MB / 16334 MB
+/NMMMMMMMMNNNNmmmdddmNMNdso:`       
++MMMMMMMNNNNNmmmmdmNMNdso/-          
+yMMNNNNNNNmmmmmNNMmhs+/-`");
+        break;
       default:
         term.echo("unknown command: " + cmd);
         break;
