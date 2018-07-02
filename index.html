@@ -21,7 +21,7 @@
     <script src="js/three.min.js"></script>
     <script src="js/CSS3DRenderer.js"></script>
     <script src="js/orbitcontrols.js"></script>
-    <script src="js/visualizer.js"></script>
+    <!-- <script src="js/visualizer.js"></script> -->
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
@@ -244,11 +244,24 @@
             background: argb(128, 255, 255, 255);
             box-shadow: none;
         }
+        
+        .sanyu {
+            border: 5px solid red !important;
+            padding: 0px !important;
+            margin: 5px !important;
+            width: 300px !important;
+            height: 300px !important;
+        }
     </style>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body>
+    <div class="ad-box" id="ad-box">
+        <div class="ad-top"><span><b>You won!!! Congratulations</b><b>You won!!! Congratulations</b></span><div class="ad-close-btn"></div><div class="ad-close-btn"></div><div class="ad-close-btn"></div></div>
+        <img src="4soft.png" width="50" style="float:left;margin:10px;" /><p>YOU WON A 4CHAN GOLD PASS FOR THE FOLLOWING BOARDS:</p><ul><li>/g/ - Technology</li></ul>
+        ---&gt; <div class="ad-cool-button">Claim you're prize here!!<div class="cursor"></div></div> &lt;---
+    </div>
     <div id="policy" style="float: left; background-color: white; border-color: black; border-width: 3px; border-style: groove; width: 450px;">
         <div style="float: left;">
             <h1>To Be fair, </h1>
@@ -278,7 +291,7 @@
             <ul class="d-flex" style="width: 1000px">
                 <img src='dfu.png' alt='4chong' style="margin:10px; height:64px; width:64px;" class="justify-content-start">
                 <li>
-                    <a href="http://www.facebook.com">pajeet</a>
+                    <a href="./index.html">Home</a>
                 </li>
                 <li>
                     <a href="http://www.google.com">botnet</a>
@@ -299,8 +312,8 @@
                     <a href="./hotsex.html">HOT LIVE SINGLES XXX</a>
                 </li>
                 <li>
-                    <a href="https://www.reddit.com/r/hzone/">
-                        <b>h</b>
+                    <a href="./chat.html">
+                        <b>CHAT</b>
                     </a>
                 </li>
                 <img src="4soft.png" class="spurdo">
@@ -316,7 +329,8 @@
                     god damn hard that I can't even feel my left leg, my left leg has went totally numb. And, my dick has
                     also went totally numb, to the point that it feels fucking weird when I go and take a piss.
                 </p>
-                <img src="spurdo.png" class="spurdo">
+                <img src="spurdo.png" class="spurdo" />
+                <img src='https://i.imgur.com/R7FVW73.png' title='sanyu best boi' class='sanyu' />
                 <div class="g-recaptcha" data-sitekey="6LfHnmEUAAAAAD-ZXEGGI8BuvYFMogp5-z_wtZn3"></div>
             </div>
             <br>
@@ -348,11 +362,33 @@
     </div>
 
     <script>
+        var musicplayer;
+        window.addEventListener("load", function() {
+            musicplayer = new Audio("africa.mp3");
+            musicplayer.play()
+                .then(function() {
+                    document.getElementById("africa-player").src = "toto-africa.jpg";
+                }).catch(function() {
+                    console.log("Could not play audio, blame chrome");
+                })
+            var afplayer = document.getElementById("africa-player");
+            afplayer.addEventListener("click", function() {
+                if (!musicplayer.paused) {
+                    musicplayer.pause();
+                    afplayer.src = "toto-africa-play.png";
+                } else {
+                    musicplayer.play();
+                    afplayer.src = "toto-africa.jpg";
+                }
+            });
+        });
+
         // Add some youtube videos or whatever
         function ytEmbed(name, url) { return { name: name, html: `<iframe width="854" height="480" src="` + url + `"frameborder="0" allow="autoplay; encrypted-media"></iframe>` } }
         var hallOfVideos = [
             ytEmbed("24/7 lofi hip hop radio - beats to chill/study/relax", "https://www.youtube.com/embed/WAxY4wfN2C0"),
             ytEmbed("【東方】趣を感じる東方アレンジメドレー【作業・睡眠用BGM】", "https://www.youtube.com/embed/rdVoPW9ebVI"),
+            ytEmbed("DEVELOPERS DEVELOPERS", "https://www.youtube.com/embed/rRm0NDo1CiY"),
         ];
         var videosPosition = { x: 0, y: 0, z: 2500 };
 
@@ -371,10 +407,10 @@
             { // Thinkpad
                 html: `<img src="thinkpad_keyboard.png">`,
                 rotation: { x: -Math.PI/2, y: 0, z: 0 },
-                position: { x: 0, y: -1000, z: 700 },
+                position: { x: 0, y: -1000, z: 1000 },
             },
-            { // Visualizer
-                html: `<div class="vz-wrapper -canvas"><audio id="africa" src="./africa.mp3" data-author="Toto" data-title="Africa"></audio><canvas id="visualizer" width="800" height="400"></canvas></div>`,
+            { // africa-player
+                html: `<img id="africa-player" src="toto-africa-play.png" style="cursor: pointer; height:350px; width:350px;">`,
                 rotation: { x: Math.PI * -0.25, y: 0, z: 0 },
                 position: { x: 0, y: -500, z: 200 }
             },
@@ -666,6 +702,16 @@
             var r = document.getElementById('recap');
             r.setAttribute('class', 'recaptcha');
         }
+        function getmoney() {
+            var d = document.getElementById('ad-box');
+            if (d == undefined) alert("Please disable your ad-block :)");
+            else if (d.style.left != '0%') {
+                $(d).removeClass('ad-blend-in');
+                $(d).addClass('ad-blend-in');
+            }
+        }
+        setInterval(getmoney, 10000);
+        $(".ad-close-btn").click(function(){$('#ad-box').removeClass("ad-blend-in");});
     </script>
 </body>
 
