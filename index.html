@@ -240,7 +240,7 @@
             transform: translate(-50%, -50%);
             height: initial;
             width: initial;
-            background: transparent;
+            background: argb(128, 255, 255, 255);
             box-shadow: none;
         }
     </style>
@@ -357,12 +357,6 @@
 
         // Add 3D elements here
         var objectList = [
-            // Africa label
-            {
-                html: `<h1>Click image to hear afrika</h1>`,
-                rotation: { x: 0, y: Math.PI * -0.25, z: 0 },
-                position: { x: 1000, y: 400, z: 500 },
-            },
             { // instructions
                 html: `<h1>WASD to move<br>Click and drag to rotate camera</h1>`,
                 rotation: { x: 0, y: 0, z: 0 },
@@ -381,15 +375,12 @@
                     z: 0,
                 },
             },
-            { // Viszalizer
+            { // Visualizer
                 html: `<div class="vz-wrapper -canvas"><audio id="africa" src="./africa.mp3" data-author="Toto" data-title="Africa"></audio><canvas id="visualizer" width="800" height="400"></canvas></div>`,
                 rotation: { x: Math.PI * -0.5, y: 0, z: 0 },
                 position: { x: 0, y: -500, z: 200 }
             }
         ]
-
-
-        var musicplayer;
 
         var scene, camera, renderer;
         var controls;
@@ -441,9 +432,6 @@
             setInterval(blurAll, 500);
             setInterval(saturateBackground, 1000);
         }
-        window.addEventListener("load", function () {
-            musicplayer = document.getElementById("africa");
-        });
 
         function blurAll() {
             var inpt = document.createElement("input");
@@ -547,13 +535,6 @@
             elemAfrica.src = "africa.jpg";
             elemAfrica.style.cursor = "pointer";
             document.body.appendChild(elemAfrica);
-            elemAfrica.addEventListener("click", function () {
-                if (!musicplayer.paused) {
-                    musicplayer.pause();
-                } else {
-                    musicplayer.play();
-                }
-            });
 
             var africa = new THREE.CSS3DObject(elemAfrica);
             africa.position.x = 1000;
