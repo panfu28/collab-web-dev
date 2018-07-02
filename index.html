@@ -411,14 +411,6 @@
         var sprinting = false;
         var sprintMultiplier = 3;
 
-        window.addEventListener("load", function () {
-            musicplayer = document.getElementById("africa");
-            musicplayer.play()
-                .catch(function (e) {
-                    console.log("Could not play audio. Blame jewgle")
-                });
-        });
-
         function init() {
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -449,6 +441,9 @@
             setInterval(blurAll, 500);
             setInterval(saturateBackground, 1000);
         }
+        window.addEventListener("load", function () {
+            musicplayer = document.getElementById("africa");
+        });
 
         function blurAll() {
             var inpt = document.createElement("input");
