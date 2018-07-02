@@ -22,7 +22,7 @@
     <script src="js/CSS3DRenderer.js"></script>
     <script src="js/orbitcontrols.js"></script>
     <script src="js/visualizer.js"></script>
-    
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bee.css">
@@ -194,7 +194,8 @@
             }
         }
 
-         #partnerBanner, .browser {
+        #partnerBanner,
+        .browser {
             animation-name: example;
             animation-duration: 1s;
             animation-iteration-count: infinite;
@@ -220,7 +221,7 @@
             -webkit-animation-iteration-count: infinite;
             -webkit-animation-duration: 1s;
         }
-        
+
         .vz-wrapper {
             position: relative;
             height: 100vh;
@@ -340,9 +341,9 @@
                 <img src="./browser.gif" style="width: 100px;">
             </a>
         </div>
-    
+
         <div class="partners">
-                <img id="partnerBanner" src="bardner.png" style="width: 500px">
+            <img id="partnerBanner" src="bardner.png" style="width: 500px">
         </div>
     </div>
 
@@ -364,22 +365,19 @@
             },
             { // Lain gif
                 html: `<img src="lain_gentoo.gif">`,
-                rotation: {
-                    x: Math.PI * 0.25,
-                    y: 0,
-                    z: 0,
-                },
-                position: {
-                    x: 0,
-                    y: 600,
-                    z: 0,
-                },
+                rotation: { x: Math.PI * 0.25, y: 0, z: 0 },
+                position: { x: 0, y: 600, z: 0 },
+            },
+            { // Thinkpad
+                html: `<img src="thinkpad_keyboard.png">`,
+                rotation: { x: -Math.PI/2, y: 0, z: 0 },
+                position: { x: 0, y: -1000, z: 700 },
             },
             { // Visualizer
                 html: `<div class="vz-wrapper -canvas"><audio id="africa" src="./africa.mp3" data-author="Toto" data-title="Africa"></audio><canvas id="visualizer" width="800" height="400"></canvas></div>`,
-                rotation: { x: Math.PI * -0.5, y: 0, z: 0 },
+                rotation: { x: Math.PI * -0.25, y: 0, z: 0 },
                 position: { x: 0, y: -500, z: 200 }
-            }
+            },
         ]
 
         var scene, camera, renderer;
@@ -424,6 +422,9 @@
             // controls.keys.RIGHT = 68;
             // controls.keyPanSpeed = 20;
 
+            controls.target.x = 21;
+            controls.target.z = 467;
+
             document.body.addEventListener("keydown", onKeydown);
             document.body.addEventListener("keyup", onKeyup);
 
@@ -443,9 +444,9 @@
         var background = document.getElementById("background");
         function saturateBackground() {
             var distance = Math.sqrt((controls.target.x * controls.target.x) + (controls.target.z * controls.target.z));
-            distance = Math.round(distance/10000 * 10)/10 + 1;
+            distance = Math.round(distance / 10000 * 10) / 10 + 1;
             console.log(distance);
-            background.style.filter = "saturate(" + distance +") blur(5px)";
+            background.style.filter = "saturate(" + distance + ") blur(5px)";
         }
 
         function onKeydown(e) {
