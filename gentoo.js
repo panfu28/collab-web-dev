@@ -1,4 +1,4 @@
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+function _asyncToGenerator(fn) { "use strict"; return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 // just google boot.log/rc.log
 var log = `
@@ -235,6 +235,7 @@ var log = `
 `.split("\n");
 
 (function() {
+  "use strict";
   var term;
 
   function parseArgs(str) {
@@ -300,7 +301,7 @@ var log = `
       args = parseArgs(args.join(" "));
     }
     catch (err) {
-      return term.echo(`Segfault(${err.message})`);
+      return void term.echo(`Segfault(${err.message})`);
     }
     // after parseArgs is ran, this:
     //   ls -A --color "OP/sucks dick"
@@ -324,22 +325,24 @@ var log = `
         break;
        case "screenfetch":
         term.echo("gentoo@installationdisc");
-		term.echo("     -odNMMMMMMMMNNmhy+-`             OS: Gentoo");
-		term.echo("   -yNMMMMMMMMMMMNNNmmdhy+-           Kernel: GNU/HURD");
-		term.echo("`omMMMMMMMMMMMMNmdmmmmddhhy/`         Uptime: 3h 42m");
-		term.echo("omMMMMMMMMMMMNhhyyyohmdddhhhdo`       Packages: enough");
-		term.echo(".ydMMMMMMMMMMdhs++so/smdddhhhhdm+`    Shell: zsh");
-		term.echo("oyhdmNMMMMMMMNdyooydmddddhhhhyhNd.    Resolution: 8192x8192");
-		term.echo("  :oyhhdNNMMMMMMMNNNmmdddhhhhhyymMh   DE: you wish");
-		term.echo("    .:+sydNMMMMMNNNmmmdddhhhhhhmMmy   WM: see above");
-		term.echo("       /mMMMMMMNNNmmmdddhhhhhmMNhs:   CPU: AMD FX 9590 @ 8x 4.7GHz [HOUSEFIRE°C]");
-		term.echo("    `oNMMMMMMMNNNmmmddddhhdmMNhs+`    GPU: GeForce GTX 480 ");
-		term.echo("  `sNMMMMMMMMNNNmmmdddddmNMmhs/.      RAM: 16100 MB / 16334 MB");
-		term.echo("/NMMMMMMMMNNNNmmmdddmNMNdso:`       ");
-		term.echo("+MMMMMMMNNNNNmmmmdmNMNdso/-          ");
-		term.echo("yMMNNNNNNNmmmmmNNMmhs+/-`");
-		break;
-
+        term.echo("     -odNMMMMMMMMNNmhy+-`             OS: Gentoo");
+        term.echo("   -yNMMMMMMMMMMMNNNmmdhy+-           Kernel: GNU/HURD");
+        term.echo("`omMMMMMMMMMMMMNmdmmmmddhhy/`         Uptime: 3h 42m");
+        term.echo("omMMMMMMMMMMMNhhyyyohmdddhhhdo`       Packages: enough");
+        term.echo(".ydMMMMMMMMMMdhs++so/smdddhhhhdm+`    Shell: zsh");
+        term.echo("oyhdmNMMMMMMMNdyooydmddddhhhhyhNd.    Resolution: 8192x8192");
+        term.echo("  :oyhhdNNMMMMMMMNNNmmdddhhhhhyymMh   DE: you wish");
+        term.echo("    .:+sydNMMMMMNNNmmmdddhhhhhhmMmy   WM: see above");
+        term.echo("       /mMMMMMMNNNmmmdddhhhhhmMNhs:   CPU: AMD FX 9590 @ 8x 4.7GHz [HOUSEFIRE°C]");
+        term.echo("    `oNMMMMMMMNNNmmmddddhhdmMNhs+`    GPU: GeForce GTX 480");
+        term.echo("  `sNMMMMMMMMNNNmmmdddddmNMmhs/.      RAM: 16100 MB / 16334 MB");
+        term.echo("/NMMMMMMMMNNNNmmmdddmNMNdso:`");
+        term.echo("+MMMMMMMNNNNNmmmmdmNMNdso/-");
+        term.echo("yMMNNNNNNNmmmmmNNMmhs+/-`");
+        term.echo("/hMMNNNNNNNNMNdhs++/`");
+        term.echo("`/ohdmmddhys+++/:.`");
+        term.echo("  `-//////:--.");
+        break;
       default:
         term.echo("unknown command: " + cmd);
         break;
@@ -348,7 +351,7 @@ var log = `
 
   _asyncToGenerator(function* () {
     var random = Math.random,
-        sleep = { then: function then(_) { setTimeout(_, random() * 70); } },
+        sleep = { then: function then(_) { setTimeout(_, random() * 50); } },
         i = 0,
         len = log.length,
         style = document.createElement("style"),
