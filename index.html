@@ -414,7 +414,9 @@
             { // africa-player
                 html: `<img id="africa-player" src="img/toto-africa-play.png" style="cursor: pointer; height:350px; width:350px;">`,
                 rotation: { x: Math.PI * -0.25, y: 0, z: 0 },
-                position: { x: 0, y: -700, z: 350 }
+                position: { x: 0, y: -700, z: 350 },
+                // Animation example:
+                // animate: function (delta) { this.object.rotation.z += 0.0005 * delta }
             },
             { // Tuturu
                 html: `<img src="img/tut.png" onClick="tut()" style="width: 200px; cursor: pointer">`,
@@ -455,8 +457,7 @@
             { //carmel dansen
                 html: `<video controls><source src="carmel.mp4" type="video/mp4">Your browser does not support the video tag.</video>`,
                 rotation: { x: 0, y: -100, z: 0 },
-                position: { x: -700, y: 500, z: 0 }
-
+                position: { x: -700, y: 500, z: 0 },
             },
             { //winrar
                 html: `<img src="img/winrar-sigh.png">`,
@@ -709,6 +710,8 @@
                 tmpel.rotation.x = objectList[i].rotation.x;
                 tmpel.rotation.y = objectList[i].rotation.y;
                 tmpel.rotation.z = objectList[i].rotation.z;
+
+                objectList[i].object = tmpel;
                 scene.add(tmpel);
             }
         }
@@ -756,11 +759,17 @@
             objects.character.position.y += Math.sin(hoverCounter / 30) * 30;
             hoverCounter += delta * 0.05;
             hoverCounter %= 30 * Math.PI * 2;
-            
+
             controls.update();
             renderer.render(scene, camera);
 
             prevTime = time;
+
+            // Execute object animations
+            objectList.forEach(x => {
+                if (x.animate)
+                    x.animate(delta);
+            });
         }
 
         function onResize() {
