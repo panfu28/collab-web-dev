@@ -24,10 +24,10 @@
     <!-- <script src="js/visualizer.js"></script> -->
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="bee.css">
-    <link rel="shortcut icon" href="/4soft.ico" type="image/x-icon">
-    <link rel="icon" href="4soft.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bee.css">
+    <link rel="shortcut icon" href="img/4soft.ico" type="image/x-icon">
+    <link rel="icon" href="img/4soft.ico" type="image/x-icon">
 
     <style>
         .shh {
@@ -259,7 +259,7 @@
 <body>
     <div class="ad-box" id="ad-box">
         <div class="ad-top"><span><b>You won!!! Congratulations</b><b>You won!!! Congratulations</b></span><div class="ad-close-btn"></div><div class="ad-close-btn"></div><div class="ad-close-btn"></div></div>
-        <img src="4soft.png" width="50" style="float:left;margin:10px;" /><p>YOU WON A 4CHAN GOLD PASS FOR THE FOLLOWING BOARDS:</p><ul><li>/g/ - Technology</li></ul>
+        <img src="img/4soft.png" width="50" style="float:left;margin:10px;" /><p>YOU WON A 4CHAN GOLD PASS FOR THE FOLLOWING BOARDS:</p><ul><li>/g/ - Technology</li></ul>
         ---&gt; <div class="ad-cool-button">Claim you're prize here!!<div class="cursor"></div></div> &lt;---
     </div>
     <div id="policy" style="float: left; background-color: white; border-color: black; border-width: 3px; border-style: groove; width: 450px;">
@@ -279,8 +279,8 @@
                 (preferably lower) beforehand. Nothin personnel kid
             </p>
         </div>
-        <img src="./nice.png" style="width: 100px; float: right; padding: 4px;">
-        <img src="./spurdo.png" style="width: 100px; float: right; padding: 4px;">
+        <img src="img/nice.png" style="width: 100px; float: right; padding: 4px;">
+        <img src="img/spurdo.png" style="width: 100px; float: right; padding: 4px;">
     </div>
 
     <div id="background"></div>
@@ -289,7 +289,7 @@
     <div class="container">
         <nav>
             <ul class="d-flex" style="width: 1000px">
-                <img src='dfu.png' alt='4chong' style="margin:10px; height:64px; width:64px;" class="justify-content-start">
+                <img src='img/dfu.png' alt='4chong' style="margin:10px; height:64px; width:64px;" class="justify-content-start">
                 <li>
                     <a href="./index.html">Home</a>
                 </li>
@@ -316,7 +316,7 @@
                         <b>CHAT</b>
                     </a>
                 </li>
-                <img src="4soft.png" class="spurdo">
+                <img src="img/4soft.png" class="spurdo">
             </ul>
             </ul>
         </nav>
@@ -331,7 +331,7 @@
                 </p>
                 <img src='https://i.imgur.com/R7FVW73.png' title='sanyu best boi' class='sanyu' />
                 <div class="g-recaptcha" data-sitekey="6LfHnmEUAAAAAD-ZXEGGI8BuvYFMogp5-z_wtZn3"></div>
-                <img src='./supreme.jpg' alt='supreme champion' style="float:right" />
+                <img src='img/supreme.jpg' alt='supreme champion' style="float:right" />
             </div>
             <br>
             <div class="col-lg-2">
@@ -341,34 +341,34 @@
         </div>
 
         <a href="http://bees.ai" class="bee-link" title="my favorite website">
-            <img src="bee.svg" class="bee-image" />
+            <img src="img/bee.svg" class="bee-image" />
         </a>
 
         <div class="sponsor">
             <a href="./gentoo.html">
-                <img src="./sponsor.png" style="width: 250px;">
+                <img src="img/sponsor.png" style="width: 250px;">
             </a>
         </div>
 
         <div class="browser">
             <p class="browser-text">Best viewed with: </p>
             <a href="https://winworldpc.com/download/45c3afc2-8f6a-18c3-9a11-c3a4e284a2ef" target="blank" title="Download now">
-                <img src="./browser.gif" style="width: 100px;">
+                <img src="img/browser.gif" style="width: 100px;">
             </a>
         </div>
 
         <div class="partners">
-            <img id="partnerBanner" src="bardner.png" style="width: 500px">
+            <img id="partnerBanner" src="img/bardner.png" style="width: 500px">
         </div>
     </div>
 
     <script>
         var musicplayer;
         window.addEventListener("load", function() {
-            musicplayer = new Audio("africa.mp3");
+            musicplayer = new Audio("audio/africa.mp3");
             musicplayer.play()
                 .then(function() {
-                    document.getElementById("africa-player").src = "toto-africa.jpg";
+                    document.getElementById("africa-player").src = "img/toto-africa.jpg";
                 }).catch(function() {
                     console.log("Could not play audio, blame chrome");
                 })
@@ -376,10 +376,10 @@
             afplayer.addEventListener("click", function() {
                 if (!musicplayer.paused) {
                     musicplayer.pause();
-                    afplayer.src = "toto-africa-play.png";
+                    afplayer.src = "img/toto-africa-play.png";
                 } else {
                     musicplayer.play();
-                    afplayer.src = "toto-africa.jpg";
+                    afplayer.src = "img/toto-africa.jpg";
                 }
             });
         });
@@ -402,39 +402,39 @@
                 position: { x: 900, y: 600, z: 0 },
             },
             { // Lain gif
-                html: `<img src="lain_gentoo.gif">`,
+                html: `<img src="img/lain_gentoo.gif">`,
                 rotation: { x: Math.PI * 0.25, y: 0, z: 0 },
                 position: { x: 0, y: 600, z: 0 },
             },
             { // Thinkpad
-                html: `<img src="thinkpad_keyboard.png">`,
+                html: `<img src="img/thinkpad_keyboard.png">`,
                 rotation: { x: -Math.PI/2, y: 0, z: 0 },
                 position: { x: 0, y: -1000, z: 1000 },
             },
             { // africa-player
-                html: `<img id="africa-player" src="toto-africa-play.png" style="cursor: pointer; height:350px; width:350px;">`,
+                html: `<img id="africa-player" src="img/toto-africa-play.png" style="cursor: pointer; height:350px; width:350px;">`,
                 rotation: { x: Math.PI * -0.25, y: 0, z: 0 },
                 position: { x: 0, y: -700, z: 350 }
             },
             { // Tuturu
-                html: `<img src="tut.png" onClick="tut()" style="width: 200px; cursor: pointer">`,
+                html: `<img src="img/tut.png" onClick="tut()" style="width: 200px; cursor: pointer">`,
                 rotation: { x: 0, y: Math.PI * 0.2, z: 0 },
                 position: { x: -700, y: 0, z: 180 }
             },
             { // Dell
-                html: `<img src="dell.jpg" style="width: 200px; cursor: pointer">`,
+                html: `<img src="img/dell.jpg" style="width: 200px; cursor: pointer">`,
                 rotation: { x: 0, y: Math.PI * 0.2, z: 0 },
                 position: { x: -700, y: 200, z: 180 }
             },
             {  // tfw away from computer
-                html: `<img id="easterEgg" style="display: none; cursor: pointer; pointer-events: none;" title="Click to hide" src="tfw.jpg" onClick="hideEasterEgg()">`,
+                html: `<img id="easterEgg" style="display: none; cursor: pointer; pointer-events: none;" title="Click to hide" src="img/tfw.jpg" onClick="hideEasterEgg()">`,
                 rotation: { x: 0, y: 0, z: 0 },
                 position: { x: 0, y: 0, z: 700 },
             }
         ]
 
         if (Math.random() >= 0.1) {objectList.push({ // Secret corruption 
-                html: `<a href="https://e621.net"> <img src="corruption.jpg"> </a>`,
+                html: `<a href="https://e621.net"> <img src="img/corruption.jpg"> </a>`,
                 rotation: { x: 0, y: 0, z: 0 },
                 position: { x: -700, y: 200, z: -50000 }
             })
@@ -475,7 +475,7 @@
             camera.position.set(149, 339, 1187);
             camera.lookAt(new THREE.Vector3());
 
-            tuturu = new Audio("tuturu.mp3");
+            tuturu = new Audio("audio/tuturu.mp3");
 
             createObjects();
             createVideos();
@@ -558,7 +558,7 @@
                 if (konamiCodePosition == konamiCode.length) {
                     showEasterEgg();
                     konamiCodePosition = 0;
-                    var trophy = new Audio("trophy.mp3");
+                    var trophy = new Audio("audio/trophy.mp3");
                     trophy.play();
                 }
             } else {
@@ -632,7 +632,7 @@
 
             // Africa ======================
             var elemAfrica = document.createElement("img");
-            elemAfrica.src = "africa.jpg";
+            elemAfrica.src = "img/africa.jpg";
             elemAfrica.style.cursor = "pointer";
             document.body.appendChild(elemAfrica);
 
@@ -655,7 +655,7 @@
 
             // Character ==================
             var characterElem = document.createElement("img");
-            characterElem.src = "character.png";
+            characterElem.src = "img/character.png";
             characterElem.style.pointerEvents = "none";
             var character = new THREE.CSS3DObject(characterElem);
             objects.character = character;
