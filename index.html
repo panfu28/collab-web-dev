@@ -329,14 +329,15 @@
                     god damn hard that I can't even feel my left leg, my left leg has went totally numb. And, my dick has
                     also went totally numb, to the point that it feels fucking weird when I go and take a piss.
                 </p>
-                <img src="spurdo.png" class="spurdo" />
                 <img src='https://i.imgur.com/R7FVW73.png' title='sanyu best boi' class='sanyu' />
                 <div class="g-recaptcha" data-sitekey="6LfHnmEUAAAAAD-ZXEGGI8BuvYFMogp5-z_wtZn3"></div>
+                <img src='./supreme.jpg' alt='supreme champion' style="float:right" />
             </div>
             <br>
             <div class="col-lg-2">
                 <object type="text/html" data="https://amzexchange.pw/live.php" style="width:313px; height:327px;"></object>
             </div>
+
         </div>
 
         <a href="http://bees.ai" class="bee-link" title="my favorite website">
@@ -386,6 +387,7 @@
         // Add some youtube videos or whatever
         function ytEmbed(name, url) { return { name: name, html: `<iframe width="854" height="480" src="` + url + `"frameborder="0" allow="autoplay; encrypted-media"></iframe>` } }
         var hallOfVideos = [
+            ytEmbed("ImPretentious.shr", "https://www.youtube.com/embed/0v_p28uti2A"),
             ytEmbed("24/7 lofi hip hop radio - beats to chill/study/relax", "https://www.youtube.com/embed/WAxY4wfN2C0"),
             ytEmbed("【東方】趣を感じる東方アレンジメドレー【作業・睡眠用BGM】", "https://www.youtube.com/embed/rdVoPW9ebVI"),
             ytEmbed("DEVELOPERS DEVELOPERS", "https://www.youtube.com/embed/rRm0NDo1CiY"),
@@ -419,12 +421,24 @@
                 rotation: { x: 0, y: Math.PI * 0.2, z: 0 },
                 position: { x: -700, y: 0, z: 180 }
             },
+            { // Dell
+                html: `<img src="dell.jpg" style="width: 200px; cursor: pointer">`,
+                rotation: { x: 0, y: Math.PI * 0.2, z: 0 },
+                position: { x: -700, y: 200, z: 180 }
+            },
             {  // tfw away from computer
                 html: `<img id="easterEgg" style="display: none; cursor: pointer; pointer-events: none;" title="Click to hide" src="tfw.jpg" onClick="hideEasterEgg()">`,
                 rotation: { x: 0, y: 0, z: 0 },
                 position: { x: 0, y: 0, z: 700 },
             }
         ]
+
+        if (Math.random() >= 0.1) {objectList.push({ // Secret corruption 
+                html: `<a href="https://e621.net"> <img src="corruption.jpg"> </a>`,
+                rotation: { x: 0, y: 0, z: 0 },
+                position: { x: -700, y: 200, z: -50000 }
+            })
+            console.log('added')}
         
         var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a'];
         var konamiCodePosition = 0;
