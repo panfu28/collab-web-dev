@@ -400,6 +400,7 @@
                 html: `<h1>WASD to move<br>Click and drag to rotate camera<br>Hold shift to sprint</h1>`,
                 rotation: { x: 0, y: 0, z: 0 },
                 position: { x: 900, y: 600, z: 0 },
+                sprite: true,
             },
             { // Lain gif
                 html: `<img src="img/lain_gentoo.gif">`,
@@ -430,6 +431,23 @@
                 html: `<img id="easterEgg" style="display: none; cursor: pointer; pointer-events: none;" title="Click to hide" src="img/tfw.jpg" onClick="hideEasterEgg()">`,
                 rotation: { x: 0, y: 0, z: 0 },
                 position: { x: 0, y: 0, z: 700 },
+            },
+            { //doot
+                html: `<img src="dooting.gif">`,
+                rotation: { x: 0, y: 0, z: 0},
+                position: { x: 0, y: 365, z: 365}
+            },
+            { //winrar
+                html: `<img src="winrar-sigh.png">`,
+                rotation: { x: 0, y: 0, z: 0 },
+                position: { x: 900, y: 900, z: 0}
+            },
+            { //camerons word
+                html: `<iframe src="https://www.cameronsworld.net/"
+                                style="width:1200px; height: 900px;">
+                        </iframe>`,
+                rotation: { x: 0, y: Math.PI / -2, z: 0 },
+                position: { x: 1500, y: 100, z: 1500}
             }
         ]
 
@@ -665,7 +683,12 @@
             for (var i = 0; i < objectList.length; i++) {
                 var div = document.createElement("div");
                 div.innerHTML = objectList[i].html;
-                var tmpel = new THREE.CSS3DObject(div);
+                var tmpel;
+                if (objectList[i].sprite) {
+                    tmpel = new THREE.CSS3DSprite(div);
+                } else {
+                    tmpel = new THREE.CSS3DObject(div);
+                }
                 tmpel.position.x = objectList[i].position.x;
                 tmpel.position.y = objectList[i].position.y;
                 tmpel.position.z = objectList[i].position.z;
