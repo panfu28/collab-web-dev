@@ -688,7 +688,7 @@
             var characterElem = document.createElement("img");
             characterElem.src = "img/character.png";
             characterElem.style.pointerEvents = "none";
-            var character = new THREE.CSS3DObject(characterElem);
+            var character = new THREE.CSS3DSprite(characterElem);
             objects.character = character;
             scene.add(character);
 
@@ -756,11 +756,7 @@
             objects.character.position.y += Math.sin(hoverCounter / 30) * 30;
             hoverCounter += delta * 0.05;
             hoverCounter %= 30 * Math.PI * 2;
-
-            objects.character.rotation.x = camera.rotation.x;
-            objects.character.rotation.y = camera.rotation.y;
-            objects.character.rotation.z = camera.rotation.z;
-
+            
             controls.update();
             renderer.render(scene, camera);
 
