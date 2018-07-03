@@ -395,7 +395,7 @@
         // Add 3D elements here
         var objectList = [
             { // instructions
-                html: `<h1>WASD to move<br>Click and drag to rotate camera</h1>`,
+                html: `<h1>WASD to move<br>Click and drag to rotate camera<br>Hold shift to sprint</h1>`,
                 rotation: { x: 0, y: 0, z: 0 },
                 position: { x: 900, y: 600, z: 0 },
             },
@@ -412,7 +412,7 @@
             { // africa-player
                 html: `<img id="africa-player" src="toto-africa-play.png" style="cursor: pointer; height:350px; width:350px;">`,
                 rotation: { x: Math.PI * -0.25, y: 0, z: 0 },
-                position: { x: 0, y: -500, z: 200 }
+                position: { x: 0, y: -700, z: 350 }
             },
             { // Tuturu
                 html: `<img src="tut.png" onClick="tut()" style="width: 200px; cursor: pointer">`,
@@ -582,7 +582,9 @@
                 var btnHide = document.createElement("button")
                 btnHide.innerHTML = hallOfVideos[i].name;
                 btnHide.style.width = "100%";
-                btnHide.style.height = "50px";
+                btnHide.style.height = "100px";
+                btnHide.style.fontSize = "30px";
+                btnHide.style.cursor = "pointer";
                 btnHide.addEventListener("click", (function (idx, elem) {
                     var toggled = false;
                     return function () {
