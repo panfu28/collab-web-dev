@@ -400,6 +400,7 @@
                 html: `<h1>WASD to move<br>Click and drag to rotate camera<br>Hold shift to sprint</h1>`,
                 rotation: { x: 0, y: 0, z: 0 },
                 position: { x: 900, y: 600, z: 0 },
+                sprite: true,
             },
             { // Lain gif
                 html: `<img src="lain_gentoo.gif">`,
@@ -666,7 +667,7 @@
                 var div = document.createElement("div");
                 div.innerHTML = objectList[i].html;
                 var tmpel;
-                if (objectList[i].type) {
+                if (objectList[i].sprite) {
                     tmpel = new THREE.CSS3DSprite(div);
                 } else {
                     tmpel = new THREE.CSS3DObject(div);
