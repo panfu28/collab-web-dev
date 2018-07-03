@@ -418,9 +418,9 @@
                 html: `<img src="tut.png" onClick="tut()" style="width: 200px; cursor: pointer">`,
                 rotation: { x: 0, y: Math.PI * 0.2, z: 0 },
                 position: { x: -700, y: 0, z: 180 }
-            }, // tfw away from computer
-            {
-                html: `<img id="easterEgg" style="visibility: hidden; cursor: pointer" title="Click to hide" src="tfw.jpg" onClick="hideEasterEgg()">`,
+            },
+            {  // tfw away from computer
+                html: `<img id="easterEgg" style="display: none; cursor: pointer; pointer-events: none;" title="Click to hide" src="tfw.jpg" onClick="hideEasterEgg()">`,
                 rotation: { x: 0, y: 0, z: 0 },
                 position: { x: 0, y: 0, z: 700 },
             }
@@ -508,12 +508,14 @@
         
         function showEasterEgg() {
             var img = document.getElementById("easterEgg");
-            img.style.visibility = 'visible';
+            img.style.display = 'block';
+            img.style.pointerEvents = 'all';
         }
 
         function hideEasterEgg() {
             var img = document.getElementById("easterEgg");
-            img.style.visibility = 'hidden';
+            img.style.display = 'none';
+            img.style.pointerEvents = 'none';
         }
         
         function onKeydown(e) {
