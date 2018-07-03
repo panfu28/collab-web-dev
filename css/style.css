@@ -81,16 +81,14 @@ nav .active {
 .ad-box {
     position: absolute;
     z-index: 99999;
-    top: 33%;
-    width: 33%;
-    height: 33%;
+    width: 500px;
+    height: 300px;
     background: linear-gradient(to bottom, black, red 40px, darkred);
     box-shadow: 0 0 5px 2px #000;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 40px 10 10 10px;
     color: #fff;
-    left: -100%;
 }
 .ad-box p {
     font-size: 24px;
