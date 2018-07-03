@@ -35,10 +35,8 @@
 }
 /* end BEES */
 
-/* this code is for global hue shift */
-body {
-  animation: 10s linear 0s infinite normal none running hue-shift;
-}
+
+
 @keyframes hue-shift {
   from { filter: contrast(150%) hue-rotate(0deg); }
   to   { filter: contrast(150%) hue-rotate(360deg); }
