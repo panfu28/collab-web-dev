@@ -21,6 +21,7 @@
     <script src="js/three.min.js"></script>
     <script src="js/CSS3DRenderer.js"></script>
     <script src="js/orbitcontrols.js"></script>
+    <script src="js/boxcanvas.js"></script>
     <!-- <script src="js/visualizer.js"></script> -->
 
     <!-- Stylesheets -->
@@ -257,11 +258,6 @@
 </head>
 
 <body>
-    <div class="ad-box" id="ad-box">
-        <div class="ad-top"><span><b>You won!!! Congratulations</b><b>You won!!! Congratulations</b></span><div class="ad-close-btn"></div><div class="ad-close-btn"></div><div class="ad-close-btn"></div></div>
-        <img src="4soft.png" width="50" style="float:left;margin:10px;" /><p>YOU WON A 4CHAN GOLD PASS FOR THE FOLLOWING BOARDS:</p><ul><li>/g/ - Technology</li></ul>
-        ---&gt; <div class="ad-cool-button">Claim you're prize here!!<div class="cursor"></div></div> &lt;---
-    </div>
     <div id="policy" style="float: left; background-color: white; border-color: black; border-width: 3px; border-style: groove; width: 450px;">
         <div style="float: left;">
             <h1>To Be fair, </h1>
@@ -430,6 +426,21 @@
                 html: `<img id="easterEgg" style="display: none; cursor: pointer; pointer-events: none;" title="Click to hide" src="tfw.jpg" onClick="hideEasterEgg()">`,
                 rotation: { x: 0, y: 0, z: 0 },
                 position: { x: 0, y: 0, z: 700 },
+            },
+            { // Box drawing canvas
+                html: `<button id="box-cv-clear">Clear</button> <button id="box-cv-toggleCursor">Toggle Cursor</button> <button id="box-cv-undo">Undo</button><br><canvas id="box-cv" width="500" height="500"></canvas>`,
+                rotation: { x: 0, y: Math.PI * 0.25, z: 0 },
+                position: { x: -1400, y: 0, z: 900 }
+            },
+            { // Advertising
+                html: ``+
+                `<div class="ad-box" id="ad-box">`+
+                `    <div class="ad-top"><span><b>You won!!! Congratulations</b><b>You won!!! Congratulations</b></span><div class="ad-close-btn"></div><div class="ad-close-btn"></div><div class="ad-close-btn"></div></div>`+
+                `    <img src="4soft.png" width="50" style="float:left;margin:10px;" /><p>YOU WON A 4CHAN GOLD PASS FOR THE FOLLOWING BOARDS:</p><ul><li>/g/ - Technology</li></ul>`+
+                `    ---&gt; <a href="https://www.4chan.org/banned"><div class="ad-cool-button">Claim you're prize here!!<div class="cursor"></div></div></a> &lt;---`+
+                `</div>`,
+                rotation: { x: 0, y: Math.PI * 0.25, z: 0 },
+                position: { x: -1000, y: 700, z: 500 }
             }
         ]
 
@@ -739,6 +750,11 @@
 
         init();
         animate();
+
+        BoxCV = new BoxCanvas('#box-cv');
+        BoxCV.RegisterEvent(document.getElementById('box-cv-clear'), 'click', BoxCV.Event_Clear);
+        BoxCV.RegisterEvent(document.getElementById('box-cv-toggleCursor'), 'click', BoxCV.Event_ToggleCursor);
+        BoxCV.RegisterEvent(document.getElementById('box-cv-undo'), 'click', BoxCV.Event_Undo);
     </script>
 
     <div class="recaptcha shh" id="recap">
@@ -753,7 +769,7 @@
             var r = document.getElementById('recap');
             r.setAttribute('class', 'recaptcha');
         }
-        function getmoney() {
+        /*function getmoney() {
             var d = document.getElementById('ad-box');
             if (d == undefined) alert("Please disable your ad-block :)");
             else if (d.style.left != '0%') {
@@ -762,7 +778,7 @@
             }
         }
         setInterval(getmoney, 10000);
-        $(".ad-close-btn").click(function(){$('#ad-box').removeClass("ad-blend-in");});
+        $(".ad-close-btn").click(function(){$('#ad-box').removeClass("ad-blend-in");});*/
     </script>
 </body>
 
