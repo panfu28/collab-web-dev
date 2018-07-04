@@ -3,7 +3,22 @@
 <head>
     <title> Gentoo is god </title>
 
-
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#000",
+      "text": "#0f0"
+    },
+    "button": {
+      "background": "#0f0"
+    }
+  }
+})});
+</script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -492,10 +507,15 @@
                 rotation: { x: Math.PI * -0.25, y: 0, z: 0 },
                 position: { x: 0, y: -700, z: 350 },
             },
+            { //Beato
+                html: `<img src="img/beato.png" onClick="beato()" style="width: 200px; cursor: pointer">`,
+                rotation: { x: 0, y: Math.PI * 0.2, z: 0 },
+                position: { x: -700, y: -150, z: 180 }
+            },
             { // Tuturu
                 html: `<img src="img/tut.png" onClick="tut()" style="width: 200px; cursor: pointer">`,
                 rotation: { x: 0, y: Math.PI * 0.2, z: 0 },
-                position: { x: -700, y: 0, z: 180 }
+                position: { x: -700, y: 50, z: 180 }
             },
             { // Dell
                 html: `<img src="img/dell.jpg" style="width: 200px; cursor: pointer">`,
@@ -549,12 +569,7 @@
                 html: `<div class='triggered'></div>`,
                 rotation: { x: 0, y: Math.PI * -0.2, z: 0 },
                 position: { x: 500, y: 200, z: 180 }
-            },
-            { // Litteraly fucking nothing :^)
-                html: `<a href="https://e621.net/"> <img src="img/corruption.jpg"> </a>`,
-                rotation: { x: 0, y: 0, z: 0 },
-                position: { x: -700, y: 200, z: -50000 }
-            },
+            }
         ]
 
         var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a'];
@@ -562,6 +577,7 @@
         var konamiCodeKeys = { 37: 'left', 38: 'up', 39: 'right', 40: 'down', 65: 'a', 66: 'b' };
 
         var tuturu;
+        var ahaha;
         var scene, camera, renderer;
         var controls;
         var objects = {};
@@ -586,6 +602,9 @@
             tuturu.play();
         }
 
+        function beato() {
+            ahaha.play();
+        }
         function init() {
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -593,6 +612,7 @@
             camera.lookAt(new THREE.Vector3());
 
             tuturu = new Audio("audio/tuturu.mp3");
+            ahaha = new Audio("audio/ahaha.wav");
 
             createObjects();
             createVideos();
