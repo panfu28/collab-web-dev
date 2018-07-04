@@ -432,16 +432,43 @@
             });
         });
 
-        // Add some youtube videos or whatever
+        /**
+        * Produces html for a youtube embed
+        * @param   {string} name to attach to the show/hide button
+        * @param   {string} url the /embed/ url of the video you wish to embed
+        * @returns {string} youtube embed
+        */
         function ytEmbed(name, url) { return { name: name, html: `<iframe width="854" height="480" src="` + url + `"frameborder="0" allow="autoplay; encrypted-media"></iframe>` } }
+
+        // Add some youtube videos or whatever
+        // @type {string[]}
         var hallOfVideos = [
             ytEmbed("ImPretentious.shr", "https://www.youtube.com/embed/0v_p28uti2A"),
             ytEmbed("24/7 lofi hip hop radio - beats to chill/study/relax", "https://www.youtube.com/embed/WAxY4wfN2C0"),
             ytEmbed("【東方】趣を感じる東方アレンジメドレー【作業・睡眠用BGM", "https://www.youtube.com/embed/rdVoPW9ebVI"),
             ytEmbed("DEVELOPERS DEVELOPERS", "https://www.youtube.com/embed/rRm0NDo1CiY"),
         ];
-        var videosPosition = { x: 0, y: 0, z: 2500 };
+        var videosPosition = new THREE.Vector3(0, 0, 2500);
 
+
+
+        /*
+        objectList contains objects in the form of:
+
+        {
+            html:     string           // html to assign to object
+            rotation: vector3          // rotation of object in radians
+            position: vector3          // position of object
+            sprite:   bool             // display the html as a sprite, always face the camera
+            animate:  function(delta)  // function called on every frame draw. Delta is the time since the last frame
+                                       // refer to this.object to change the position or rotation of the CSS object
+
+            object: THREE.CSSObject || CSSSprite // will be assigned after createObjects() is called
+        }
+
+        Animation example:
+            animate: function (delta) { this.object.rotation.z += 0.0005 * delta }
+        */
         // Add 3D elements here
         var objectList = [
             { // instructions
@@ -464,8 +491,6 @@
                 html: `<img id="africa-player" src="img/toto-africa-play.png" style="cursor: pointer; height:350px; width:350px;">`,
                 rotation: { x: Math.PI * -0.25, y: 0, z: 0 },
                 position: { x: 0, y: -700, z: 350 },
-                // Animation example:
-                // animate: function (delta) { this.object.rotation.z += 0.0005 * delta }
             },
             { // Tuturu
                 html: `<img src="img/tut.png" onClick="tut()" style="width: 200px; cursor: pointer">`,
