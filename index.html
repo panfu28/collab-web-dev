@@ -467,10 +467,15 @@
                 // Animation example:
                 // animate: function (delta) { this.object.rotation.z += 0.0005 * delta }
             },
+            { //Beato
+                html: `<img src="img/beato.png" onClick="beato()" style="width: 200px; cursor: pointer">`,
+                rotation: { x: 0, y: Math.PI * 0.2, z: 0 },
+                position: { x: -700, y: -150, z: 180 }
+            },
             { // Tuturu
                 html: `<img src="img/tut.png" onClick="tut()" style="width: 200px; cursor: pointer">`,
                 rotation: { x: 0, y: Math.PI * 0.2, z: 0 },
-                position: { x: -700, y: 0, z: 180 }
+                position: { x: -700, y: 50, z: 180 }
             },
             { // Dell
                 html: `<img src="img/dell.jpg" style="width: 200px; cursor: pointer">`,
@@ -537,6 +542,7 @@
         var konamiCodeKeys = { 37: 'left', 38: 'up', 39: 'right', 40: 'down', 65: 'a', 66: 'b' };
 
         var tuturu;
+        var ahaha;
         var scene, camera, renderer;
         var controls;
         var objects = {};
@@ -561,6 +567,9 @@
             tuturu.play();
         }
 
+        function beato() {
+            ahaha.play();
+        }
         function init() {
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -568,6 +577,7 @@
             camera.lookAt(new THREE.Vector3());
 
             tuturu = new Audio("audio/tuturu.mp3");
+            ahaha = new Audio("audio/ahaha.wav");
 
             createObjects();
             createVideos();
