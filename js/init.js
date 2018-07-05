@@ -1,18 +1,3 @@
-// Please add most code here!!!
-
-window.addEventListener("load", function(){
-window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#000",
-      "text": "#0f0"
-    },
-    "button": {
-      "background": "#0f0"
-    }
-  }
-})});
-
 var musicplayer;
 window.addEventListener("load", function () {
     musicplayer = new Audio("audio/africa.mp3");
@@ -34,26 +19,51 @@ window.addEventListener("load", function () {
     });
 });
 
-// Add some youtube videos or whatever
-function ytEmbed(name, url, c) {
-    if (c != 1) {
-        return {
-            name: name, 
-            html: `<iframe width="854" height="480" src="` + url + `"frameborder="0" allow="autoplay; encrypted-media"></iframe>`
-        }
-        } else {
-            return 'b2JqZWN0TGlzdC5wdXNoKHtodG1sOmA8aW1nIHNyYz0iYCArIHdpbmRvdy5hdG9iKCdhSFIwY0hNNkx5OXBMbWx0WjNWeUxtTnZiUzlNYkRCTGF6STRMbXB3Wnc9PScpK2AiPmAscm90YXRpb246e3g6IDAsIHk6IDAsIHo6IDB9LHBvc2l0aW9uOnt4OiAtNzAwLCB5OiAyMDAsIHo6IC01MDAwMH19KQ0K'
-        }
-    }
-var hallOfVideos = [
-    ytEmbed("video hall is still broken :(", "https://www.youtube.com/embed/0v_p28uti2A", 0),
-];
-var videosPosition = { x: 0, y: 0, z: 2500 };
-var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a'];
-var konamiCodePosition = 0;
-var konamiCodeKeys = { 37: 'left', 38: 'up', 39: 'right', 40: 'down', 65: 'a', 66: 'b' };
-var konamiSeed = 'aHR0cHM6Ly9pLmltZ3VyLmNvbS9MbDBLazI4LmpwZw=='
+/**
+ * @typedef  {Object}  VideoEmbed represents a video.
+ * @property {string}  name name displayed in show/hide button
+ * @property {string}  html html displayed in 3D
+ */
 
+/**
+* Produces html for a youtube embed
+* @param   {string} name to attach to the show/hide button
+* @param   {string} url the /embed/ url of the video you wish to embed
+* @returns {VideoEmbed} youtube embed
+*/
+function ytEmbed(name, url) { return { name: name, html: `<iframe width="854" height="480" src="` + url + `"frameborder="0" allow="autoplay; encrypted-media"></iframe>` } }
+
+/**
+ * Hall of videos
+ * @type {VideoEmbed} 
+ */
+var hallOfVideos = [
+    ytEmbed("ImPretentious.shr", "https://www.youtube.com/embed/0v_p28uti2A"),
+    ytEmbed("24/7 lofi hip hop radio - beats to chill/study/relax", "https://www.youtube.com/embed/WAxY4wfN2C0"),
+    ytEmbed("【東方】趣を感じる東方アレンジメドレー【作業・睡眠用BGM", "https://www.youtube.com/embed/rdVoPW9ebVI"),
+    ytEmbed("DEVELOPERS DEVELOPERS", "https://www.youtube.com/embed/rRm0NDo1CiY"),
+];
+var videosPosition = new THREE.Vector3(0, 0, 2500);
+
+
+/*
+objectList contains objects in the form of:
+
+{
+    element   HTMLElement      // Element to use in place of html.
+    html:     string           // html to assign to object
+    rotation: vector3          // rotation of object in radians
+    position: vector3          // position of object
+    sprite:   bool             // display the html as a sprite, always face the camera
+    animate:  function(delta)  // function called on every frame draw. Delta is the time since the last frame
+                               // refer to this.object to change the position or rotation of the CSS object
+
+    object: THREE.CSSObject || CSSSprite // will be assigned after createObjects() is called
+}
+
+Animation example:
+    animate: function (delta) { this.object.rotation.z += 0.0005 * delta }
+*/
 // Add 3D elements here
 var objectList = [
     { // instructions
@@ -76,21 +86,19 @@ var objectList = [
         html: `<img id="africa-player" src="img/toto-africa-play.png" style="cursor: pointer; height:350px; width:350px;">`,
         rotation: { x: Math.PI * -0.25, y: 0, z: 0 },
         position: { x: 0, y: -700, z: 350 },
-        // Animation example:
-        // animate: function (delta) { this.object.rotation.z += 0.0005 * delta }
     },
     { //Beato
-        html: `<img src="img/beato.png" onClick="beato()" style="width: 200px; cursor: pointer">`,
+        html: `<img src="img/beato.png" onClick="ahaha.play()" style="width: 200px; cursor: pointer">`,
         rotation: { x: 0, y: Math.PI * 0.2, z: 0 },
         position: { x: -700, y: -150, z: 180 }
     },
     { // Tuturu
-        html: `<img src="img/tut.png" onClick="tut()" style="width: 200px; cursor: pointer">`,
+        html: `<img src="img/tut.png" onClick="tuturu.play()" style="width: 200px; cursor: pointer">`,
         rotation: { x: 0, y: Math.PI * 0.2, z: 0 },
         position: { x: -700, y: 50, z: 180 }
     },
     { // Dell
-        html: `<img src="img/dell.jpg" onClick="beepy()" style="width: 200px; cursor: pointer">`,
+        html: `<img src="img/dell.jpg" onclick="beepy.play()" style="width: 200px; cursor: pointer">`,
         rotation: { x: 0, y: Math.PI * 0.2, z: 0 },
         position: { x: -700, y: 200, z: 180 }
     },
@@ -99,7 +107,6 @@ var objectList = [
         rotation: { x: 0, y: 0, z: 0 },
         position: { x: 0, y: 0, z: 700 },
     },
-
     { // Box drawing canvas
         html: `<button id="box-cv-clear">Clear</button> <button id="box-cv-toggleCursor">Toggle Cursor</button> <button id="box-cv-undo">Undo</button><br><canvas id="box-cv" width="500" height="500"></canvas>`,
         rotation: { x: 0, y: Math.PI * 0.25, z: 0 },
@@ -143,11 +150,48 @@ var objectList = [
         rotation: { x: 0, y: Math.PI * -0.2, z: 0 },
         position: { x: 500, y: 200, z: 180 }
     },
+    { // Africa rotating
+        html: `<img src="img/africa.jpg>`,
+        rotation: new THREE.Vector3(0, Math.PI / 2, 0),
+        position: new THREE.Vector3(1000, 0, 500),
+        animate: function (delta) { this.object.rotation.x += 0.0001 * delta; this.object.rotation.y += 0.0001 * delta },
+    },
+    { // Character
+        html: `<img src="img/character.png">`,
+        sprite: true,
+        hoverCounter: 0,
+        animate: function (delta) {
+            this.object.position.x = controls.target.x;
+            this.object.position.y = controls.target.y - 500;
+            this.object.position.z = controls.target.z;
+            this.object.position.y += Math.sin(this.hoverCounter / 30) * 30;
+            this.hoverCounter += delta * 0.05;
+            this.hoverCounter %= 30 * Math.PI * 2;
+        },
+        style: {
+            pointerEvents: "none"
+        }
+    },
+    { // Policy
+        element: "#policy",
+        rotation: new THREE.Vector3(0, Math.PI * 0.25, 0),
+        position: new THREE.Vector3(-2000, 500, 0),
+    },
+    { // Container
+        element: ".container",
+    },
 ]
 
-var tuturu;
-var ahaha;
-var beep;
+
+var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a']; // @type {string[]}
+var konamiCodePosition = 0; // @type {number}
+var konamiCodeKeys = { 37: 'left', 38: 'up', 39: 'right', 40: 'down', 65: 'a', 66: 'b' }; // @type {Object.<number, string>}
+
+// Audio
+var tuturu = new Audio("audio/tuturu.mp3");
+var ahaha = new Audio("audio/ahaha.wav");
+var beepy = new Audio("audio/beep.wav");
+
 var scene, camera, renderer;
 var controls;
 var objects = {};
@@ -168,27 +212,12 @@ var friction = 0.005;
 var sprinting = false;
 var sprintMultiplier = 3;
 
-function tut() {
-    tuturu.play();
-}
-
-function beato() {
-    ahaha.play();
-}
-
-function beepy() {
-    beep.play();
-}
 
 function init() {
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.set(149, 339, 1187);
     camera.lookAt(new THREE.Vector3());
-
-    tuturu = new Audio("audio/tuturu.mp3");
-    ahaha = new Audio("audio/ahaha.wav");
-    beep = new Audio("audio/beep.wav")
 
     createObjects();
     createVideos();
@@ -227,9 +256,9 @@ function blurAll() {
 
 var background = document.getElementById("background");
 function saturateBackground() {
-    //var distance = Math.sqrt((controls.target.x * controls.target.x) + (controls.target.z * controls.target.z));
-    //distance = Math.round(distance / 10000 * 10) / 10 + 1;
-    //background.style.filter = "saturate(" + distance + ") blur(5px)";
+    var distance = Math.sqrt((controls.target.x * controls.target.x) + (controls.target.z * controls.target.z));
+    distance = Math.round(distance / 10000 * 10) / 10 + 1;
+    background.style.filter = "saturate(" + distance + ") blur(5px)";
 }
 
 function showEasterEgg() {
@@ -338,53 +367,34 @@ function createVideos() {
 }
 
 function createObjects() {
-    eval(window.atob(ytEmbed(1, 2, 1)))
-
-    var obj = new THREE.CSS3DObject(document.getElementsByClassName("container")[0]);
-    scene.add(obj);
-
-
-    // Africa ======================
-    var elemAfrica = document.createElement("img");
-    elemAfrica.src = "img/africa.jpg";
-    elemAfrica.style.cursor = "pointer";
-    document.body.appendChild(elemAfrica);
-
-    var africa = new THREE.CSS3DObject(elemAfrica);
-    africa.position.x = 1000;
-    africa.position.z = 500;
-    africa.rotation.y = Math.PI / 2;
-
-    objects.africa = africa;
-    scene.add(africa);
-
-
-    // Privacy policy ================
-    var privacyPolicy = new THREE.CSS3DObject(document.getElementById("policy"));
-    privacyPolicy.position.x = -1000
-    privacyPolicy.position.z = 500;
-    privacyPolicy.rotation.y = Math.PI * (0.25);
-    objects.privacyPolicy = privacyPolicy;
-    scene.add(privacyPolicy);
-
-    // Character ==================
-    var characterElem = document.createElement("img");
-    characterElem.src = "img/character.png";
-    characterElem.style.pointerEvents = "none";
-    var character = new THREE.CSS3DSprite(characterElem);
-    objects.character = character;
-    scene.add(character);
-
-    // Object list ===========
     for (var i = 0; i < objectList.length; i++) {
-        var div = document.createElement("div");
-        div.innerHTML = objectList[i].html;
+         /** @type {HTMLElement} */
+        var div;
+
+        if (objectList[i].element) {
+            div = document.body.querySelector(objectList[i].element);
+            document.body.removeChild(div);
+        } else {
+            div = document.createElement("div");
+            div.innerHTML = objectList[i].html;
+        }
+
         var tmpel;
         if (objectList[i].sprite) {
             tmpel = new THREE.CSS3DSprite(div);
         } else {
             tmpel = new THREE.CSS3DObject(div);
         }
+
+        if (objectList[i].style) {
+            Object.keys(objectList[i].style).forEach(x => {
+                div.style[x] = objectList[i].style[x];
+            });
+        }
+
+        objectList[i].position = objectList[i].position || {x: 0, y: 0, z: 0};
+        objectList[i].rotation = objectList[i].rotation || {x: 0, y: 0, z: 0};
+
         tmpel.position.x = objectList[i].position.x;
         tmpel.position.y = objectList[i].position.y;
         tmpel.position.z = objectList[i].position.z;
@@ -405,10 +415,6 @@ function animate() {
 
     var time = performance.now();
     var delta = (time - prevTime);
-
-    // Africa
-    objects.africa.rotation.x += 0.0001 * delta;
-    objects.africa.rotation.y += 0.0001 * delta;
 
     // Movement
     var dir = new THREE.Vector3();
@@ -434,14 +440,6 @@ function animate() {
 
     controls.pan(-velocity.x, -velocity.z);
 
-    // Character
-    objects.character.position.x = controls.target.x;
-    objects.character.position.y = controls.target.y - 500;
-    objects.character.position.z = controls.target.z;
-    objects.character.position.y += Math.sin(hoverCounter / 30) * 30;
-    hoverCounter += delta * 0.05;
-    hoverCounter %= 30 * Math.PI * 2;
-
     controls.update();
     renderer.render(scene, camera);
 
@@ -449,8 +447,7 @@ function animate() {
 
     // Execute object animations
     objectList.forEach(x => {
-        if (x.animate)
-            x.animate(delta);
+        if (x.animate) x.animate(delta);
     });
 }
 
@@ -467,8 +464,3 @@ BoxCV = new BoxCanvas('#box-cv');
 BoxCV.RegisterEvent(document.getElementById('box-cv-clear'), 'click', BoxCV.Event_Clear);
 BoxCV.RegisterEvent(document.getElementById('box-cv-toggleCursor'), 'click', BoxCV.Event_ToggleCursor);
 BoxCV.RegisterEvent(document.getElementById('box-cv-undo'), 'click', BoxCV.Event_Undo);
-
-if (Math.random() < 0.1) {
-    var r = document.getElementById('recap');
-    r.setAttribute('class', 'recaptcha');
-}
