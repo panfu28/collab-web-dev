@@ -35,7 +35,7 @@ function ytEmbed(name, url) { return { name: name, html: `<iframe width="854" he
 
 /**
  * Hall of videos
- * @type {VideoEmbed} 
+ * @type {VideoEmbed[]} 
  */
 var hallOfVideos = [
     ytEmbed("ImPretentious.shr", "https://www.youtube.com/embed/0v_p28uti2A"),
