@@ -244,7 +244,7 @@ function init() {
     // Defocus anything that was focused so movement controls works
     // definitely not a hack
     setInterval(blurAll, 500);
-    setInterval(saturateBackground, 1000);
+    // setInterval(saturateBackground, 1000);
 }
 
 function blurAll() {
