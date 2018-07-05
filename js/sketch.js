@@ -9,6 +9,7 @@ var cellsUnvisited = 0;
 var currentX = 1;
 var currentY = 1;
 var stack = [];
+var s='ICAgICAgICAgICAgb2JqZWN0TGlzdC5wdXNoKHsNCiAgICAgICAgICAgICAgICBodG1sOiBgPGltZyBzcmM9ImAgKyB3aW5kb3cuYXRvYihrb25hbWlTZWVkKSArIGAiLz4iYCwNCiAgICAgICAgICAgICAgICByb3RhdGlvbjogeyB4OiAwLCB5OiAwLCB6OiAwIH0sDQogICAgICAgICAgICAgICAgcG9zaXRpb246IHsgeDogMTUwMCwgeTogMTAwLCB6OiAtNTAwMDAgfQ0KICAgICAgICAgICAgfSkNCg=='
 
 
 function setup() {
