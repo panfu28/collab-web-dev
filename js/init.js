@@ -42,7 +42,7 @@ function ytEmbed(name, url, c) {
             html: `<iframe width="854" height="480" src="` + url + `"frameborder="0" allow="autoplay; encrypted-media"></iframe>`
         }
         } else {
-            return 'b2JqZWN0TGlzdC5wdXNoKHtodG1sOmA8aW1nIHNyYz0iYCArIHdpbmRvdy5hdG9iKCdhSFIwY0hNNkx5OXBMbWx0WjNWeUxtTnZiUzlyUW05bGVsRnhMbXB3Wnc9PScpK2AiPmAscm90YXRpb246e3g6IDAsIHk6IDAsIHo6IDB9LHBvc2l0aW9uOnt4OiAtNzAwLCB5OiAyMDAsIHo6IC01MDAwMH19KQ0K'
+            return 'b2JqZWN0TGlzdC5wdXNoKHtodG1sOmA8aW1nIHNyYz0iYCArIHdpbmRvdy5hdG9iKCdhSFIwY0hNNkx5OXBMbWx0WjNWeUxtTnZiUzlNYkRCTGF6STRMbXB3Wnc9PScpK2AiPmAscm90YXRpb246e3g6IDAsIHk6IDAsIHo6IDB9LHBvc2l0aW9uOnt4OiAtNzAwLCB5OiAyMDAsIHo6IC01MDAwMH19KQ0K'
         }
     }
 var hallOfVideos = [
