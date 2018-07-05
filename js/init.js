@@ -52,7 +52,7 @@ var videosPosition = { x: 0, y: 0, z: 2500 };
 var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a'];
 var konamiCodePosition = 0;
 var konamiCodeKeys = { 37: 'left', 38: 'up', 39: 'right', 40: 'down', 65: 'a', 66: 'b' };
-var konamiSeed = 'aHR0cHM6Ly9pLmltZ3VyLmNvbS9rQm9lelFxLmpwZw=='
+var konamiSeed = 'aHR0cHM6Ly9pLmltZ3VyLmNvbS9MbDBLazI4LmpwZw=='
 
 // Add 3D elements here
 var objectList = [
