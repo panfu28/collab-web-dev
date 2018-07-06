@@ -35,7 +35,7 @@ function ytEmbed(name, url) { return { name: name, html: `<iframe width="854" he
 
 /**
  * Hall of videos
- * @type {VideoEmbed[]} 
+ * @type {VideoEmbed[]}
  */
 var hallOfVideos = [
     ytEmbed("ImPretentious.shr", "https://www.youtube.com/embed/0v_p28uti2A"),
@@ -180,6 +180,20 @@ var objectList = [
     { // Container
         element: ".container",
     },
+    { //Porninator
+        html: `<div style="background-color: black;">
+                  <div style="color: white; font-family: sans-serif; font-size: 52px; font-weight: bold; text-align: center;">PORNINATOR</span>
+                  <div>
+                    <img src="img/loading.png" id="porninator-overlay" style="position: absolute; left:0px; width: 1500px; height: 1500px; display: none; pointer-events: none;" ></img>
+                    <a id="image-link" href="img/porn.png" target="_blank"><img id="danbooru" src="img/porn.png" style="cursor: pointer; display: block; width: 1500px; height: 1500px;" onLoad="$('#porninator-overlay').hide();"></img></a>
+                  </div>
+                  <input type="text" id="tag1" placeholder="Tag 1" onClick="$('#tag1').val(prompt('Type first tag', $('#tag1').val()))">
+                  <input type="text" id="tag2" placeholder="Tag 2" onClick="$('#tag2').val(prompt('Type second tag', $('#tag2').val()))">
+                  <button type="button" onClick="getRandomDanbooru($('#danbooru'), $('#tag1').val(), $('#tag2').val(), $('#image-link'))" style="cursor: pointer;">Get porn</button>
+              </div>`,
+        rotation: { x: 0, y: 10, z: 0 },
+        position: { x: 900, y: 200, z: 2700 }
+    }
 ]
 
 
