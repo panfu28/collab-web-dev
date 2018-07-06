@@ -2,53 +2,52 @@
 
 <head>
     <title> Gentoo is god </title>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <!--slim version of jquery doesnt have ajax functions-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="ass.css"> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.min.js"></script>
+
+    <!-- Javascript -->
     <script src="js/three.min.js"></script>
     <script src="js/CSS3DRenderer.js"></script>
     <script src="js/orbitcontrols.js"></script>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/bee.css">
-    <link rel="shortcut icon" href="./img/4soft.ico" type="image/x-icon">
-    <link rel="icon" href="./img/4soft.ico" type="image/x-icon">
-	<link rel="stylesheet" href='./css/hotsex.css'>
-	<script src="./js/hotsex.js"></script>
+    <script src="js/boxcanvas.js"></script>
+    <script src="js/base64.js"> </script>
+    <script src="js/porninator.js"></script>
+    <!-- <script src="js/visualizer.js"></script> -->
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bee.css">
+    <link rel="shortcut icon" href="img/4soft.ico" type="image/x-icon">
+    <link rel="icon" href="img/4soft.ico" type="image/x-icon">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
-	
-    <div id="policy" style="float: left; background-color: white; border-color: black; border-width: 3px; border-style: groove; ">
-        <div style="float: left;">
-            <h1>We ubdaded our briwacy bolicy</h1>
-            <h3>Also we use googies</h3>
-        </div>
-        <img src="img/spurdo.png" style="width: 100px; float: right; padding: 4px;">
-    </div>
 <body>
-  <audio id="im1">
-    <source src="./audio/imsend.wav" type="audio/ogg">
-    Your browser does not support the audio element.
-  </audio>
-  <audio id="im2">
-    <source src="./audio/imrcv.wav" type="audio/ogg">
-    Your browser does not support the audio element.
-  </audio>
+    <div id="policy" style="float: left; background-color: white; border-color: black; border-width: 3px; border-style: groove; width: 450px;">
+        <div style="float: left;">
+        </div>
+    </div>
 
+    <div id="background"></div>
+    <div id="renderer"></div>
 
     <div class="container">
         <nav>
-            <ul class="d-flex">
-                <img src='img/chan.png' alt='4chong' style="margin:10px; height:64px; width:64px;" class="justify-content-start">
-
+            <ul class="d-flex" style="width: 1000px">
+                <img src='img/dfu.png' alt='4chong' style="margin:10px; height:64px; width:64px;" class="justify-content-start">
                 <li>
                     <a href="./index.html">Home</a>
                 </li>
@@ -75,12 +74,15 @@
                         <b>CHAT</b>
                     </a>
                 </li>
+                <li>
+                    <a href="./stallman.html"><b>stall of fame</b></a>
+                </li>
                 <img src="img/4soft.png" class="spurdo">
             </ul>
             </ul>
         </nav>
         <br>
-        <div class="row d-flex justify-content-center">
+  <div class="row d-flex justify-content-center">
 
 		
 		            <div class="col-md-6" style="background-color:white; border:1px solid black; padding:0; overflow:hidden;">
@@ -107,116 +109,42 @@
 		
 
         </div>
+
+
         <a href="http://bees.ai" class="bee-link" title="my favorite website">
-            <img src="img/bee.svg" class="bee-image" />
+            <div class="bee-box">
+                <img src="img/bee.svg" class="bee-image" />
+            </div>
         </a>
 
-        <script src="js/script.js"></script>
-        <!-- Browser stuff -->
-        <style>
-            .sponsor {
-                animation-name: example;
-                animation-duration: 1s;
-                animation-iteration-count: infinite;
-                -webkit-animation-name: example;
-                -webkit-animation-iteration-count: infinite;
-                -webkit-animation-duration: 1s;
-                float: right;
-                padding: 10px;
-                margin-right: 80px;
-                border-style: dashed;
-                border-color: red;
-                border-width: 3px
-            }
-
-            @-webkit-keyframes example {
-                0% {
-                    border-color: red;
-                    color: red;
-                }
-                25% {
-                    border-color: yellow;
-                    color: yellow;
-                }
-                50% {
-                    border-color: blue;
-                    color: blue;
-                }
-                100% {
-                    border-color: green;
-                    color: green;
-                }
-            }
-
-            @keyframes example {
-                0% {
-                    border-color: red;
-                    color: red;
-                }
-                25% {
-                    border-color: yellow;
-                    color: yellow;
-                }
-                50% {
-                    border-color: blue;
-                    color: blue;
-                }
-                100% {
-                    border-color: green;
-                    color: green;
-                }
-            }
-
-            .browser {
-                animation-name: example;
-                animation-duration: 1s;
-                animation-iteration-count: infinite;
-                -webkit-animation-name: example;
-                -webkit-animation-iteration-count: infinite;
-                -webkit-animation-duration: 1s;
-                float: right;
-                padding: 10px;
-                margin-right: -80px;
-                border-style: dashed;
-                border-color: red;
-                border-width: 3px
-            }
-
-            .browser-text {
-                font: monospace;
-                float: left;
-                color: red;
-                animation-name: example;
-                animation-duration: 1s;
-                animation-iteration-count: infinite;
-                -webkit-animation-name: example;
-                -webkit-animation-iteration-count: infinite;
-                -webkit-animation-duration: 1s;
-            }
-        </style>
         <div class="sponsor">
-            <a href="./gentoo.html"><img src="./img/sponsor.png" style="width: 250px;"></a>
+            <a href="./gentoo.html">
+                <img src="img/sponsor.png" style="width: 250px;">
+            </a>
         </div>
+
         <div class="browser">
             <p class="browser-text">Best viewed with: </p>
             <a href="https://winworldpc.com/download/45c3afc2-8f6a-18c3-9a11-c3a4e284a2ef" target="blank" title="Download now">
-                <img src="./img/browser.gif" style="width: 100px;">
+                <img src="img/browser.gif" style="width: 100px;">
             </a>
         </div>
+
+        <div class="partners">
+            <img id="partnerBanner" src="img/bardner.png" style="width: 500px">
+        </div>
     </div>
-    <script>
+
+    <script src="js/init2.js"> </script>
+	    <script>
 		
 		let chatInput = document.getElementById('chat-input');
-
 const addChatItem = function addChat() {
   const box = document.querySelector('.message-pane');
   const newHTML = (`<li><div class="c-send">${chatInput.value}</div></li>`);
-
   box.insertAdjacentHTML('beforeend', newHTML);
     chatInput.value = '';
-
 }
-
 const chatResponse1 = function() {
   const box = document.querySelector('.message-pane');
   let responseNum = Math.floor(Math.random() * 6 + 1)
@@ -228,34 +156,26 @@ const chatResponse1 = function() {
     imrcv();
   }, 2200)
 }
-
 document.getElementById('sex-chat').addEventListener('keypress', function(event) {
-
     if (event.keyCode === 13) {
         addChatItem();
         imsend();
         chatResponse1();
     }
-
 });
-
 const imsend = function() {
   const send = document.getElementById('im1');
   send.play();
 }
-
 const imrcv = function() {
   const rcv = document.getElementById('im2');
   rcv.play();
 }
-
 window.setInterval(function() {
   var elem = document.getElementById('chat-data');
   elem.scrollTop = elem.scrollHeight;
 }, 500);
-
-
     </script>
-</body>
 
+</body>
 </html>
