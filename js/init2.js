@@ -59,25 +59,12 @@ var objectList = [
             pointerEvents: "none"
         }
     },
-    { // Policy
-        element: "#policy",
-        rotation: new THREE.Vector3(0, Math.PI * 0.25, 0),
-        position: new THREE.Vector3(-2000, 500, 0),
-    },
+    
     { // Container
         element: ".container",
     }
 ]
 
-
-var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a']; // @type {string[]}
-var konamiCodePosition = 0; // @type {number}
-var konamiCodeKeys = { 37: 'left', 38: 'up', 39: 'right', 40: 'down', 65: 'a', 66: 'b' }; // @type {Object.<number, string>}
-
-// Audio
-var tuturu = new Audio("audio/tuturu.mp3");
-var ahaha = new Audio("audio/ahaha.wav");
-var beepy = new Audio("audio/beep.wav");
 
 var scene, camera, renderer;
 var controls;
@@ -147,17 +134,6 @@ function saturateBackground() {
     background.style.filter = "saturate(" + distance + ") blur(5px)";
 }
 
-function showEasterEgg() {
-    var img = document.getElementById("easterEgg");
-    img.style.display = 'block';
-    img.style.pointerEvents = 'all';
-}
-
-function hideEasterEgg() {
-    var img = document.getElementById("easterEgg");
-    img.style.display = 'none';
-    img.style.pointerEvents = 'none';
-}
 
 function onKeydown(e) {
     switch (e.keyCode) {
