@@ -94,42 +94,6 @@ function init() {
     camera.lookAt(new THREE.Vector3());
 
     createObjects();
-    	//skybox
- var sides = [
-          {
-            url: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/328/161/576.gif',
-            position: [ -4096, 0, 0 ],
-            rotation: [ 0, Math.PI / 2, 0 ]
-          },
-          {
-            url: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/328/161/576.gif',
-            position: [ 4096, 0, 0 ],
-            rotation: [ 0, -Math.PI / 2, 0 ]
-          },
-          {
-            url: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/328/161/576.gif',
-            position: [ 0, 0,  4096 ],
-            rotation: [ 0, Math.PI, 0 ]
-          },
-          {
-            url: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/328/161/576.gif',
-            position: [ 0, 0, -4096 ],
-            rotation: [ 0, 0, 0 ]
-          }
-        ];
-	
-	
-	for ( var i = 0; i < sides.length; i ++ ) {
-					var side = sides[ i ];
-					var element = document.createElement( 'img' );
-					element.width = 10000; // 2 pixels extra to close the gap.
-					element.src = side.url;
-					var object = new THREE.CSS3DObject( element );
-					object.position.fromArray( side.position );
-					object.rotation.fromArray( side.rotation );
-					scene.add( object );
-				}
-    
 
     window.addEventListener("resize", onResize);
     renderer = new THREE.CSS3DRenderer();
